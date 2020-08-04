@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>Automated_E2E_Testing_Workshop</RootNamespace>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Hooks.cs~RFa2c2dfb.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FunkyBDD.SxS.Helpers" Version="2.0.0" />
+    <PackageReference Include="FunkyBDD.SxS.Selenium.Browserstack" Version="1.0.4" />
+    <PackageReference Include="FunkyBDD.SxS.Selenium.WebDriver" Version="1.0.2" />
+    <PackageReference Include="nunit" Version="3.12.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.17.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.6.1" />
+    <PackageReference Include="Selenium.Chrome.WebDriver" Version="83.0.0" />
+    <PackageReference Include="SpecFlow" Version="3.3.57" />
+    <PackageReference Include="SpecFlow.NUnit" Version="3.3.57" />
+    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.3.57" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\APOM\APOM.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.browserstack.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Specs\Homepage.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Homepage.feature.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>
