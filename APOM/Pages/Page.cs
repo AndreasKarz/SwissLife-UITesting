@@ -22,7 +22,7 @@ namespace APOM.Pages
             Component = driver.FindElement(By.XPath("//body"));
             Title = driver.Title;
             Disclaimer = new CookieDisclaimer(Component);
-            SearchBar = new SearchBar(Component);
+            // SearchBar = new SearchBar(Component);
     }
 
         public int GetScrollPos()

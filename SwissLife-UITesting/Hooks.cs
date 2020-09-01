@@ -7,6 +7,8 @@ using System.Linq;
 using TechTalk.SpecFlow;
 using APOM.Pages;
 using System.Threading;
+using System.IO;
+using Newtonsoft.Json.Linq;
 
 namespace Automated_E2E_Testing_Workshop
 {
@@ -16,6 +18,7 @@ namespace Automated_E2E_Testing_Workshop
         public static Homepage Page;
         public static IWebDriver Driver;
         public static Browser Browser;
+        public static JObject Config;
         private static FeatureContext featureContext;
         private static ScenarioContext scenarioContext;
         private static string _testURL;
@@ -24,14 +27,10 @@ namespace Automated_E2E_Testing_Workshop
         [BeforeTestRun]
         public static void InitFramework()
         {
-            if (Environment.GetEnvironmentVariable("TEST_URL") == null)
-            {
-                _testURL = "https://www.swisslife.ch/de/private.html";
-            }
-            else
-            {
-                _testURL = Environment.GetEnvironmentVariable("TEST_URL");
-            }
+            string configText = File.ReadAllText("appsettings.json");
+            Config = JObject.Parse(configText);
+
+            _testURL = Config["BaseURL"].ToString();
         }
 
         [BeforeFeature]
