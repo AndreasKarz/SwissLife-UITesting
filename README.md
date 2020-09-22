@@ -15,6 +15,25 @@ Die Konfiguration für BrowserStack wird über die appsettings.browserstack.json v
 ### AssemblyInfo
 In der AssemblyInfo.cs ist die Einstellung für NUnit, um die Tests parallel zu starten.
 
+## Know-how
 
+### BDD
+[Example of a Discovery Workshop](https://www.youtube.com/watch?v=y1oD3cNXybc)
+[BDD -- how create a example](https://www.youtube.com/watch?v=7qpSePQtQiM)
+[The Big Ideas Behind BDD](https://www.youtube.com/watch?v=47HCnXbeDfc)
+[Specflow & Selenium for Developers](https://www.youtube.com/watch?v=r4StJFaGpQs)
 
+### Specflow
+[Getting started](https://specflow.org/blog/getting-started-with-specflow-a-video-series/)
+[Specflow Context Injection](https://docs.specflow.org/projects/specflow/en/latest/Bindings/Context-Injection.html)
+[Working with Hooks](https://docs.specflow.org/projects/specflow/en/latest/Bindings/Hooks.html)
 
+### Selenium
+[Selenium Browser Automation](https://www.selenium.dev/documentation/en/)
+[Overview Of Selenium Locators](https://www.c-sharpcorner.com/article/overview-of-selenium-locators/)
+
+### Atomic Design
+https://bradfrost.com/blog/post/atomic-web-design/
+
+### Browserstack
+Coming soon...
