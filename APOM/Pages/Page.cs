@@ -9,7 +9,7 @@ namespace APOM.Pages
     public class Page
     {
         public IWebElement Component { get; set; }
-        public IWebDriver Driver { get; set; }
+        private readonly IWebDriver _driver;
         public string Title { get; set; }
 
         public CookieDisclaimer Disclaimer { get; set; }
@@ -18,7 +18,7 @@ namespace APOM.Pages
 
         public Page(IWebDriver driver)
         {
-            Driver = driver;
+            _driver = driver;
             Component = driver.FindElement(By.XPath("//body"));
             Title = driver.Title;
             Disclaimer = new CookieDisclaimer(Component);
@@ -27,17 +27,17 @@ namespace APOM.Pages
 
         public int GetScrollPos()
         {
-            return Driver.GetScrollPosition();
+            return _driver.GetScrollPosition();
         }
 
         public void ScrollY(int pos)
         {
-            Driver.ExecuteScript($"window.scrollTo(0, {pos.ToString()});");
+            _driver.ExecuteScript($"window.scrollTo(0, {pos.ToString()});");
         }
 
         public void SetLangTo(string lang)
         {
-            var nav = Driver.FindElementsOrDefault(By.CssSelector("nav[data-g-name='LanguageNavigation'] a"), 2);
+            var nav = _driver.FindElementsOrDefault(By.CssSelector("nav[data-g-name='LanguageNavigation'] a"), 2);
             var setter = nav.Where(s => s.Text.ToLower() == lang.ToLower()).Select(s => s).FirstOrDefault();
             if (setter != null)
             {

@@ -1,5 +1,6 @@
 ﻿using APOM.Pages;
 using NUnit.Framework;
+using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 
 namespace Automated_E2E_Testing_Workshop.Specs
@@ -7,14 +8,16 @@ namespace Automated_E2E_Testing_Workshop.Specs
     [Binding]
     public sealed class Suche
     {
-        private readonly ScenarioContext context;
+        private readonly IWebDriver _driver;
+        private readonly ScenarioContext _scenarioContext;
         private readonly Homepage homepage;
         private SearchResultPage searchResultPage;
 
-        public Suche(ScenarioContext injectedContext)
+        public Suche(IWebDriver driver, ScenarioContext scenarioContext)
         {
-            context = injectedContext;
-            homepage = new Homepage(Hooks.Page.Driver);
+            _driver = driver;
+            _scenarioContext = scenarioContext;
+            homepage = new Homepage(_driver);
             if (homepage.Disclaimer.Displayed)
             {
                 homepage.AcceptCookieDisclaimer();
@@ -26,7 +29,7 @@ namespace Automated_E2E_Testing_Workshop.Specs
         {
             homepage.SearchBar.SearchFor(suchbegriff);
             homepage.SearchBar.SearchWithEnter();
-            searchResultPage = new SearchResultPage(Hooks.Page.Driver);
+            searchResultPage = new SearchResultPage(_driver);
         }
 
         [Then(@"Werden mindestens (.*) Resultate gefunden")]

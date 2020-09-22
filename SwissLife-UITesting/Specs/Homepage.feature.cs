@@ -241,10 +241,10 @@ this.FeatureBackground();
   testRunner.And("I confirm the disclaimer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 35
-  testRunner.And("I select the QuickLink \'Lebensereignisse\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("I select the QuickLink \'Generalagenturen\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 36
- testRunner.Then("Sollte der Titel \'Lebensereignisse | Swiss Life\' sein", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("Sollte der Titel \'Kontakt | Swiss Life\' sein", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

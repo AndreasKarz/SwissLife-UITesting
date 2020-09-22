@@ -32,5 +32,5 @@ Scenario: Confirm the Cookie Disclaimer
 Scenario: Test the QuickLink
 	When I change the language to 'DE'
 		And I confirm the disclaimer
-		And I select the QuickLink 'Lebensereignisse'
-	Then Sollte der Titel 'Lebensereignisse | Swiss Life' sein
+		And I select the QuickLink 'Generalagenturen'
+	Then Sollte der Titel 'Kontakt | Swiss Life' sein

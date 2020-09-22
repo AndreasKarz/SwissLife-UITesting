@@ -20,28 +20,31 @@ namespace Automated_E2E_Testing_Workshop
         private readonly ScenarioContext _scenarioContext;
         private readonly IWebDriver _driver;
         private readonly string _testURL;
+        private Homepage _homepage;
 
-        public static Homepage Page;
+        public IWebDriver Driver => _driver;
 
         public Hooks(FeatureContext featureContext, ScenarioContext scenarioContext, IWebDriver driver, JObject config)
         {
             _featureContext = featureContext;
             _scenarioContext = scenarioContext;
             _driver = driver;
+
             _testURL = config["BaseURL"].ToString();
         }
 
         [BeforeTestRun]
-        public static void InitFramework(IObjectContainer objectContainer)
+        public static void InitFramework()
         {
-            string configText = File.ReadAllText("appsettings.json");
-            var config = JObject.Parse(configText);
-            objectContainer.RegisterInstanceAs<JObject>(config);
         }
 
         [BeforeFeature]
         public static void BeforeFeature(IObjectContainer objectContainer, FeatureContext featureContext)
         {
+            string configText = File.ReadAllText("appsettings.json");
+            var config = JObject.Parse(configText);
+            objectContainer.RegisterInstanceAs<JObject>(config);
+
             if (!featureContext.FeatureInfo.Tags.Contains("API"))
             {
                 Browser browser;
@@ -67,14 +70,14 @@ namespace Automated_E2E_Testing_Workshop
         public void IOpenTheTestPage()
         {
             _driver.Navigate().GoToUrl(_testURL);
-            Page = new Homepage(_driver);
+            _homepage = new Homepage(_driver);
         }
 
         [Given(@"The language is set to '(.*)'"), When(@"I change the language to '(.*)'"), Given(@"Die Sprache ist auf '(.*)' gestellt")]
         public void GivenTheLanguageIsSetTo(string lang)
         {
-            Page.SetLangTo(lang);
-            Page = new Homepage(_driver); /* ReInit the Page, otherwise all elements will be staled! */
+            _homepage.SetLangTo(lang);
+            _homepage = new Homepage(_driver); /* ReInit the Page, otherwise all elements will be staled! */
         }
 
         [Given(@"I confirm the disclaimer"), When(@"I confirm the disclaimer"), When(@"Ich den Disclaimer bestätige")]
@@ -82,7 +85,7 @@ namespace Automated_E2E_Testing_Workshop
         {
             try
             {
-                Page.AcceptCookieDisclaimer();
+                _homepage.AcceptCookieDisclaimer();
                 Thread.Sleep(1000);
             }
             catch (Exception)

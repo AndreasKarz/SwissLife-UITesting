@@ -3,17 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <RootNamespace>Automated_E2E_Testing_Workshop</RootNamespace>
-
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;CS0649;</NoWarn>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="Hooks.cs~RFa2c2dfb.TMP" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FunkyBDD.SxS.Helpers" Version="2.0.0" />
@@ -43,10 +38,6 @@
     </None>
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Specs\Homepage.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Homepage.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
 

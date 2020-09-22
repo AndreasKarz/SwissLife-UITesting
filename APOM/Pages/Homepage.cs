@@ -5,7 +5,8 @@ namespace APOM.Pages
 {
     public class Homepage : Page
     {
-        public QuickLinks QuickLinks { get; set; }
+        public readonly QuickLinks QuickLinks;
+
         public Homepage(IWebDriver driver) : base(driver)
         {
             QuickLinks = new QuickLinks(Component);
