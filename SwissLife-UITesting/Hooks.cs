@@ -7,7 +7,6 @@ using OpenQA.Selenium;
 using SwissLife.SxS.Helpers;
 using System;
 using System.IO;
-using System.Linq;
 using System.Threading;
 using TechTalk.SpecFlow;
 
@@ -45,20 +44,18 @@ namespace Automated_E2E_Testing_Workshop
             var config = JObject.Parse(configText);
             objectContainer.RegisterInstanceAs<JObject>(config);
 
-            if (!featureContext.FeatureInfo.Tags.Contains("API"))
+            Browser browser;
+            if (Environment.GetEnvironmentVariable("TEST_BROWSER") == null)
             {
-                Browser browser;
-                if (Environment.GetEnvironmentVariable("TEST_BROWSER") == null)
-                {
-                    browser = new Browser("FirefoxLocal");
-                }
-                else
-                {
-                    browser = new Browser(Environment.GetEnvironmentVariable("TEST_BROWSER"));
-                }
-                objectContainer.RegisterInstanceAs<IWebDriver>(browser.Driver);
-                objectContainer.RegisterInstanceAs<Browser>(browser);
+                browser = new Browser("FirefoxLocal");
             }
+            else
+            {
+                browser = new Browser(Environment.GetEnvironmentVariable("TEST_BROWSER"));
+            }
+
+            objectContainer.RegisterInstanceAs<IWebDriver>(browser.Driver);
+            objectContainer.RegisterInstanceAs<Browser>(browser);
         }
 
         [BeforeScenario]
