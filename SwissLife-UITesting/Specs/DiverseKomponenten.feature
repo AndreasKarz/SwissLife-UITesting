@@ -1,4 +1,4 @@
-﻿@screenshots
+﻿@screenshots @UAT
 Feature: DiverseKomponenten
 
 Background: Open the Homepage

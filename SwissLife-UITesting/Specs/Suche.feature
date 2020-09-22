@@ -1,5 +1,5 @@
 ﻿#language: de-DE
-@base @search
+@Base @Search @UAT @PAV
 Funktionalität: Suchservice auf der Homepage
 	Um 
 		Informationen zu verschiedenen Versicherungsthemen zu erhalten
@@ -18,7 +18,7 @@ Szenariogrundriss: Die Suche nach Vorsorge liefert die gewünschten Informatione
 	Dann Werden mindestens <Anzahl> Resultate gefunden
 Beispiele: 
 	| Suchbegriff              | Anzahl |
-	| Vorsorge                 | 400    |
+	| Vorsorge                 | 401    |
 	| Invest                   | 80     |
 	| 3a                       | 100    |
 

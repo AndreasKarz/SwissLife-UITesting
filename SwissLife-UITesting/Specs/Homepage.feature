@@ -1,4 +1,4 @@
-﻿@base
+﻿@Base @UAT @PAV
 Feature: Homepage base functionalities
 	In order to 
 		avoid silly mistakes
@@ -32,5 +32,5 @@ Scenario: Confirm the Cookie Disclaimer
 Scenario: Test the QuickLink
 	When I change the language to 'DE'
 		And I confirm the disclaimer
-		And I select the QuickLink 'Hypothekarzinsen'
-	Then Sollte der Titel 'Aktuelle Hypothekarzinssätze - Festhypothek, Libor-Hypothek, variable Hypothek | Swiss Life' sein
+		And I select the QuickLink 'Lebensereignisse'
+	Then Sollte der Titel 'Lebensereignisse | Swiss Life' sein

@@ -11,7 +11,7 @@ namespace APOM.Atoms
 
         private void initComponent()
         {
-            Icon = new SvgIcon(Component);
+            Icon = Component == null?null:new SvgIcon(Component);
         }
 
         public Link(IWebElement parent)

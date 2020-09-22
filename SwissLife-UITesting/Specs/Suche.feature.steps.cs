@@ -15,7 +15,7 @@ namespace Automated_E2E_Testing_Workshop.Specs
         {
             context = injectedContext;
             homepage = new Homepage(Hooks.Page.Driver);
-            if(homepage.Disclaimer.Displayed)
+            if (homepage.Disclaimer.Displayed)
             {
                 homepage.AcceptCookieDisclaimer();
             }

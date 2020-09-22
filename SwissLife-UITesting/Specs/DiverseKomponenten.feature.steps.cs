@@ -1,14 +1,13 @@
-﻿using System;
-using System.Drawing;
-using System.IO;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading;
-using APOM.Pages;
+﻿using APOM.Pages;
 using FunkyBDD.SxS.Selenium.WebDriver;
 using FunkyBDD.SxS.Selenium.WebElement;
+using Newtonsoft.Json.Linq;
 using OpenQA.Selenium;
 using SwissLife.SxS.Helpers;
+using System;
+using System.Drawing;
+using System.IO;
+using System.Threading;
 using TechTalk.SpecFlow;
 
 namespace Automated_E2E_Testing_Workshop.Specs
@@ -19,14 +18,15 @@ namespace Automated_E2E_Testing_Workshop.Specs
         private readonly ScenarioContext _scenarioContext;
         private readonly PageDiverseKomponenten page;
 
-        public DiverseKomponentenSteps(ScenarioContext scenarioContext)
+        public DiverseKomponentenSteps(IWebDriver driver, ScenarioContext scenarioContext)
         {
             _scenarioContext = scenarioContext;
+            driver.NavigateToPath("/de/testwiese.html");
             page = new PageDiverseKomponenten(Hooks.Page.Driver);
         }
 
         [Then(@"Die Screenshots aller Komponenten stimmen mit der Baseline überein")]
-        public void ThenDieScreenshotsAllerKomponentenStimmenMitDerBaselineUberein()
+        public void ThenDieScreenshotsAllerKomponentenStimmenMitDerBaselineUberein(JObject config)
         {
             foreach (var component in page.Components)
             {
@@ -37,11 +37,11 @@ namespace Automated_E2E_Testing_Workshop.Specs
 
                 component.ScrollTo();
                 Thread.Sleep(2000);
-                var imageComparisonPath = Hooks.Config["ImageComparisonPath"].ToString();
+                var imageComparisonPath = config["ImageComparisonPath"].ToString();
 
                 var type = FileHelpers.RemoveIllegalFileNameChars(component.GetAttribute("class"));
                 var hash = GetHash(component.Text);
-                string  fileName = $"{imageComparisonPath}/{type}__{hash}.png";
+                string fileName = $"{imageComparisonPath}/{type}__{hash}.png";
 
                 var screenshot = Hooks.Page.Driver.GetElementScreenshot(component);
                 screenshot.Save(fileName, System.Drawing.Imaging.ImageFormat.Png);

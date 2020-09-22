@@ -20,27 +20,27 @@ namespace Automated_E2E_Testing_Workshop.Specs
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.4.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("DiverseKomponenten")]
-    [NUnit.Framework.CategoryAttribute("screenshots")]
+    [NUnit.Framework.DescriptionAttribute("FormularParsys")]
+    [NUnit.Framework.CategoryAttribute("Formulare")]
     [NUnit.Framework.CategoryAttribute("UAT")]
-    public partial class DiverseKomponentenFeature
+    public partial class FormularParsysFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private string[] _featureTags = new string[] {
-                "screenshots",
+                "Formulare",
                 "UAT"};
         
-#line 1 "DiverseKomponenten.feature"
+#line 1 "FormularParsys.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Specs", "DiverseKomponenten", null, ProgrammingLanguage.CSharp, new string[] {
-                        "screenshots",
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Specs", "FormularParsys", null, ProgrammingLanguage.CSharp, new string[] {
+                        "Formulare",
                         "UAT"});
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -86,16 +86,19 @@ namespace Automated_E2E_Testing_Workshop.Specs
 #line 5
  testRunner.Given("I open the Homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
+#line 6
+  testRunner.And("I confirm the disclaimer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Alle Komponenten mit Screenshots abdecken")]
-        public virtual void AlleKomponentenMitScreenshotsAbdecken()
+        [NUnit.Framework.DescriptionAttribute("Private bedingte E-Mail validieren")]
+        public virtual void PrivateBedingteE_MailValidieren()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Alle Komponenten mit Screenshots abdecken", null, tagsOfScenario, argumentsOfScenario);
-#line 7
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Private bedingte E-Mail validieren", null, tagsOfScenario, argumentsOfScenario);
+#line 8
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -118,11 +121,35 @@ this.ScenarioInitialize(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line hidden
-#line 8
- testRunner.When("I confirm the disclaimer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
 #line 9
- testRunner.Then("Die Screenshots aller Komponenten stimmen mit der Baseline überein", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I select \'private-bedingte-e-mail\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 10
+  testRunner.And("I select input \'Betrifft-1554988802546_0\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 11
+  testRunner.And("I select input \'Anrede-1553703294075_1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 12
+  testRunner.And("I select input \'Rueckruf-1553762364726_2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 13
+  testRunner.And("I select input \'Thema-1553762364726_2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 14
+  testRunner.And("I fillout the customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 15
+  testRunner.And("I write \'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo" +
+                        " ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis par" +
+                        "turient montes, nascetur ridiculus mus. Donec qu\' as message to \'Nachricht-15531" +
+                        "76699112\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 16
+  testRunner.And("I submit the form", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 17
+ testRunner.Then("The I see the confirmation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

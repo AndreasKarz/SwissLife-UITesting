@@ -22,8 +22,8 @@ namespace APOM.Pages
             Component = driver.FindElement(By.XPath("//body"));
             Title = driver.Title;
             Disclaimer = new CookieDisclaimer(Component);
-            // SearchBar = new SearchBar(Component);
-    }
+            SearchBar = new SearchBar(Component);
+        }
 
         public int GetScrollPos()
         {
@@ -39,7 +39,7 @@ namespace APOM.Pages
         {
             var nav = Driver.FindElementsOrDefault(By.CssSelector("nav[data-g-name='LanguageNavigation'] a"), 2);
             var setter = nav.Where(s => s.Text.ToLower() == lang.ToLower()).Select(s => s).FirstOrDefault();
-            if(setter != null)
+            if (setter != null)
             {
                 setter.ScrollTo();
                 setter.Click();

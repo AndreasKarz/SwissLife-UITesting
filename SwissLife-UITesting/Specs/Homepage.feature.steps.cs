@@ -1,5 +1,6 @@
 ﻿using APOM.Pages;
 using NUnit.Framework;
+using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 
 namespace Automated_E2E_Testing_Workshop.Specs
@@ -7,13 +8,13 @@ namespace Automated_E2E_Testing_Workshop.Specs
     [Binding]
     public sealed class HomepageSteps
     {
-        private readonly ScenarioContext context;
+        private readonly IWebDriver _driver;
         private readonly Homepage homepage;
 
-        public HomepageSteps(ScenarioContext injectedContext)
+        public HomepageSteps(IWebDriver driver)
         {
-            context = injectedContext;
-            homepage = new Homepage(Hooks.Page.Driver);
+            _driver = driver;
+            homepage = new Homepage(_driver);
         }
 
         [When(@"I select the QuickLink '(.*)'")]
@@ -25,7 +26,7 @@ namespace Automated_E2E_Testing_Workshop.Specs
         [Then(@"Sollte der Titel '(.*)' sein")]
         public void ThenSollteDieURLSein(string title)
         {
-            Assert.AreEqual(title, Hooks.Driver.Title);
+            Assert.AreEqual(title, _driver.Title);
         }
 
         [Then(@"the disclaimer should be shown")]
