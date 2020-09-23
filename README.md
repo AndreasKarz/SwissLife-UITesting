@@ -7,7 +7,11 @@ Als Testrunner ist [NUnit](https://nunit.org/) implementiert, das dieses optimal
 ## Konfiguration
 
 ### Applikation
-Die Konfiguration der Tests findet über die appsettings.json statt, welche beliebig erweitert werden kann. Verarbeitet werden die Einstellungen in der Hooks.cs. Die Konfiguration wird als JSON Objekt via Dependency Injection in den Object Container eingebunden. Wichtig: dies kann nur im Before Feature Hook erfolgen, ansonsten funktioniert Multitasking nicht mehr.
+Der testRunner wird im Hook (Hooks.cs) [BeforeFeature] konfiguriert
+https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1
+https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1#configuration-providers
+https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-3.1
+Hierarchie => TODO
 
 ### BrowserStack Konfiguration
 Die Konfiguration für BrowserStack wird über die appsettings.browserstack.json vorgenommen. Details dazu findest du auf [GitHub](https://github.com/AndreasKarz/FunkyBDD.SxS.Selenium.Browserstack).

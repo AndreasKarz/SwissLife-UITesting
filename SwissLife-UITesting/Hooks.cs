@@ -2,11 +2,10 @@
 using BoDi;
 using FunkyBDD.SxS.Selenium.Browserstack;
 using FunkyBDD.SxS.Selenium.WebDriver;
-using Newtonsoft.Json.Linq;
+using Microsoft.Extensions.Configuration;
 using OpenQA.Selenium;
 using SwissLife.SxS.Helpers;
 using System;
-using System.IO;
 using System.Threading;
 using TechTalk.SpecFlow;
 
@@ -23,44 +22,30 @@ namespace Automated_E2E_Testing_Workshop
 
         public IWebDriver Driver => _driver;
 
-        public Hooks(FeatureContext featureContext, ScenarioContext scenarioContext, IWebDriver driver, JObject config)
+        public Hooks(FeatureContext featureContext, ScenarioContext scenarioContext, IWebDriver driver, IConfiguration config)
         {
             _featureContext = featureContext;
             _scenarioContext = scenarioContext;
             _driver = driver;
 
-            _testURL = config["BaseURL"].ToString();
-        }
-
-        [BeforeTestRun]
-        public static void InitFramework()
-        {
+            _testURL = config["BaseURL"];
         }
 
         [BeforeFeature]
-        public static void BeforeFeature(IObjectContainer objectContainer, FeatureContext featureContext)
+        public static void BeforeFeature(IObjectContainer objectContainer)
         {
-            string configText = File.ReadAllText("appsettings.json");
-            var config = JObject.Parse(configText);
-            objectContainer.RegisterInstanceAs<JObject>(config);
+            /* initialize & register IConfiguration */
+            IConfiguration config = new ConfigurationBuilder()
+                    .AddJsonFile("appsettings.json", optional: true)
+                    .AddUserSecrets("81ff8e37-cda6-49f3-8b10-08b9d00f64d6")
+                    .AddEnvironmentVariables(prefix: "E2E_")
+                    .Build();
+            objectContainer.RegisterInstanceAs<IConfiguration>(config);
 
-            Browser browser;
-            if (Environment.GetEnvironmentVariable("TEST_BROWSER") == null)
-            {
-                browser = new Browser("FirefoxLocal");
-            }
-            else
-            {
-                browser = new Browser(Environment.GetEnvironmentVariable("TEST_BROWSER"));
-            }
-
+            /* initialize & register Browser and IWebDriver */
+            Browser browser = config["Browser"] == null ? new Browser("FirefoxLocal") : new Browser(config["Browser"]);
             objectContainer.RegisterInstanceAs<IWebDriver>(browser.Driver);
             objectContainer.RegisterInstanceAs<Browser>(browser);
-        }
-
-        [BeforeScenario]
-        public void BeforeScenario()
-        {
         }
 
         [Given(@"I open the Homepage"), Given(@"Die Homepage ist geöffnet")]
