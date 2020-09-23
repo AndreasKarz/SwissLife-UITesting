@@ -9,7 +9,7 @@ namespace APOM.Pages
     public class Page
     {
         public IWebElement Component { get; set; }
-        private readonly IWebDriver _driver;
+        internal readonly IWebDriver _driver;
         public string Title { get; set; }
 
         public CookieDisclaimer Disclaimer { get; set; }

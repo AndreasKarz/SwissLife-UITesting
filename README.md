@@ -11,6 +11,7 @@ Der testRunner wird im Hook (Hooks.cs) [BeforeFeature] konfiguriert
 https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1
 https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1#configuration-providers
 https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-3.1
+https://www.youtube.com/watch?v=_2_qksdQKCE
 Hierarchie => TODO
 
 ### BrowserStack Konfiguration
