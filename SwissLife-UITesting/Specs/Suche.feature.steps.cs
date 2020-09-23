@@ -5,7 +5,7 @@ using TechTalk.SpecFlow;
 
 namespace Automated_E2E_Testing_Workshop.Specs
 {
-    [Binding]
+    [Binding, Scope(Feature = "Suchservice auf der Homepage")]
     public sealed class Suche
     {
         private readonly IWebDriver _driver;

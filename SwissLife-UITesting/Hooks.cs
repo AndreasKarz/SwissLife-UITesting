@@ -55,6 +55,13 @@ namespace Automated_E2E_Testing_Workshop
             _homepage = new Homepage(_driver);
         }
 
+        [Given(@"I navigate to '(.*)'"), When(@"I navigate to '(.*)'")]
+        public void GivenINavigateTo(string path)
+        {
+            _driver.NavigateToPath(path);
+            _scenarioContext["Page"] = new Page(_driver);
+        }
+
         [Given(@"The language is set to '(.*)'"), When(@"I change the language to '(.*)'"), Given(@"Die Sprache ist auf '(.*)' gestellt")]
         public void GivenTheLanguageIsSetTo(string lang)
         {
