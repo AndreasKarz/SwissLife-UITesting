@@ -39,8 +39,8 @@ namespace Automated_E2E_Testing_Workshop.Specs
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Specs", "Homepage Contacts", "\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
-                    "f two numbers", ProgrammingLanguage.CSharp, new string[] {
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Specs", "Homepage Contacts", "\tIn order to \r\n\t\tvalidate the contact possabilities\r\n\tAs a \r\n\t\tuser\r\n\tI want to\r\n" +
+                    "\t\tbe sure, that i can contact the SwissLife", ProgrammingLanguage.CSharp, new string[] {
                         "Base",
                         "Production"});
             testRunner.OnFeatureStart(featureInfo);
@@ -82,12 +82,12 @@ namespace Automated_E2E_Testing_Workshop.Specs
         
         public virtual void FeatureBackground()
         {
-#line 7
+#line 10
 #line hidden
-#line 8
+#line 11
  testRunner.Given("I open the Homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 9
+#line 12
   testRunner.And("I confirm the disclaimer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
         }
@@ -99,7 +99,7 @@ namespace Automated_E2E_Testing_Workshop.Specs
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check Mail form", null, tagsOfScenario, argumentsOfScenario);
-#line 11
+#line 14
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -119,22 +119,22 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 7
+#line 10
 this.FeatureBackground();
 #line hidden
-#line 12
+#line 15
   testRunner.And("I navigate to \'/de/ueber-uns/kontakt.html\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 13
+#line 16
  testRunner.When("I open the contact form for private customers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 14
+#line 17
   testRunner.And("I fillout the form with valid infos", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 15
+#line 18
   testRunner.And("I submit the form", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 16
+#line 19
  testRunner.Then("I see the confirmation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

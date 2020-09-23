@@ -12,7 +12,7 @@ namespace APOM.Organisms
     {
         public Dictionary<string, IWebElement> Inputs = new Dictionary<string, IWebElement>();
 
-        private void initComponent()
+        private void InitComponent()
         {
             foreach (var (input, label, type) in from IWebElement input in Component.FindElements(By.TagName("input"))
                                                  let label = input.GetAttribute("id")
@@ -36,9 +36,9 @@ namespace APOM.Organisms
 
         public BaseForm(IWebDriver driver)
         {
-            Component = driver.FindElementFirstOrDefault(By.CssSelector("div[data-fetch-content='true']"), 3);
-            Thread.Sleep(2000);
-            initComponent();
+            Component = driver.FindElementFirstOrDefault(By.CssSelector("div[data-fetch-content='true']"));
+            Thread.Sleep(600); /* wait until the animation is finished */
+            InitComponent();
         }
 
         public void SelectInput(string key)

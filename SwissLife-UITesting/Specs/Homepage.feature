@@ -1,11 +1,11 @@
 ﻿@Base @UAT @PAV
 Feature: Homepage base functionalities
 	In order to 
-		avoid silly mistakes
+		use our Homepage
 	As a 
-		math idiot
+		customer
 	I want to 
-		be told the sum of two numbers
+		use all the basic Homepage functions
 
 Background: Open the Homepage
 	Given I open the Homepage
