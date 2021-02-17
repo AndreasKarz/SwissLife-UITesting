@@ -1,4 +1,4 @@
-﻿@Base @UAT @PAV
+﻿@Base @UAT @PAV @Homepage
 Feature: Homepage base functionalities
 	In order to 
 		use our Homepage

@@ -15,20 +15,20 @@
     <PackageReference Include="FunkyBDD.SxS.Helpers" Version="2.0.0" />
     <PackageReference Include="FunkyBDD.SxS.Selenium.Browserstack" Version="1.0.4" />
     <PackageReference Include="FunkyBDD.SxS.Selenium.WebDriver" Version="1.0.2" />
-    <PackageReference Include="Magick.NET-Q16-AnyCPU" Version="7.22.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.8" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="3.1.8" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="3.1.8" />
-    <PackageReference Include="nunit" Version="3.12.0" />
+    <PackageReference Include="Magick.NET-Q16-AnyCPU" Version="7.23.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="5.0.0" />
+    <PackageReference Include="nunit" Version="3.13.1" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.17.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
-    <PackageReference Include="Selenium.Chrome.WebDriver" Version="85.0.0" />
-    <PackageReference Include="SpecFlow" Version="3.4.8" />
-    <PackageReference Include="SpecFlow.NUnit" Version="3.4.8" />
-    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.4.8" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="88.0.4324.9600" />
+    <PackageReference Include="SpecFlow" Version="3.6.23" />
+    <PackageReference Include="SpecFlow.NUnit" Version="3.6.23" />
+    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.6.23" />
   </ItemGroup>
 
   <ItemGroup>

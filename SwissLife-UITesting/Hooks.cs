@@ -4,6 +4,7 @@ using FunkyBDD.SxS.Selenium.Browserstack;
 using FunkyBDD.SxS.Selenium.WebDriver;
 using Microsoft.Extensions.Configuration;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.Extensions;
 using SwissLife.SxS.Helpers;
 using System;
 using System.Threading;
@@ -52,6 +53,7 @@ namespace Automated_E2E_Testing_Workshop
         public void IOpenTheTestPage()
         {
             _driver.Navigate().GoToUrl(_testURL);
+            _driver.ExecuteJavaScript("localStorage.setItem('survey_psyma_modal', 'closed')");
             _homepage = new Homepage(_driver);
         }
 
