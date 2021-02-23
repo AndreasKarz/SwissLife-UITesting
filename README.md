@@ -1,6 +1,8 @@
 # Automated E2E Testing Framework
 DotNet Core solution with Specflow, Selenium, NUnit and Browserstack implementation. 
 
+dotnet test /logger:trx SwissLife-UITesting.Tests.dll
+
 ## Test runner
 Als Testrunner ist [NUnit](https://nunit.org/) implementiert, das dieses optimal mit den Test Pipelines von Microsoft Azure zusammen arbeitet. Dies betrifft vor allem die [Integration der Attachements](https://stackoverflow.com/questions/60389685/nunit-how-to-attach-screenshot-to-test-attachments-in-azure-pipeline).
 

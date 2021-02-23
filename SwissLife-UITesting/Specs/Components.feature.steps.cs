@@ -3,6 +3,7 @@ using FunkyBDD.SxS.Selenium.WebElement;
 using ImageMagick;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.Extensions;
 using System.Collections.ObjectModel;
 using System.Drawing;
@@ -35,6 +36,9 @@ namespace Automated_E2E_Testing_Workshop.Specs
         public void WhenICollectAllComponents()
         {
             _components = _driver.FindElements(By.XPath("//*[@id='a11y-main']/div/div"));
+            Actions actionProvider = new Actions(_driver);
+            actionProvider.MoveToElement(_components[0]).Build().Perform();
+            actionProvider.MoveByOffset(-(_components[0].Size.Width / 2), 0).Build().Perform();
         }
 
         [When(@"I remove the nav header")]
@@ -59,14 +63,13 @@ namespace Automated_E2E_Testing_Workshop.Specs
             var count = 0;
             var errorCount = 0;
 
-            _components[_components.Count - 1].ScrollTo();
-            Thread.Sleep(10000);
-            //_components[0].ScrollTo();
+            _components[^1].ScrollTo();
+            Thread.Sleep(5000);
 
             foreach (var component in _components)
             {
                 component.ScrollTo();
-                Thread.Sleep(1000);
+                Thread.Sleep(5000);
 
                 using Bitmap newImage = _driver.GetElementScreenshot(component, false);
                 count++;
