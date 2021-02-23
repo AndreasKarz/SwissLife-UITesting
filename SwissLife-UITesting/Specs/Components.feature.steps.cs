@@ -29,7 +29,12 @@ namespace Automated_E2E_Testing_Workshop.Specs
         [When(@"I open the component page")]
         public void GivenIOpenTheComponentPage()
         {
-            _driver.Navigate().GoToUrl("https://www.swisslife.ch/de/autom_testing/komponenten-alle.html");
+            _driver.Navigate().GoToUrl("https://www.swisslife.ch/de/autom_testing/komponenten-alle.html#Widget");
+            Thread.Sleep(1000);
+            _driver.Navigate().Refresh();
+            Thread.Sleep(1000);
+            _driver.Navigate().Refresh();
+            Thread.Sleep(1000);
         }
 
         [When(@"I collect all components")]
@@ -64,7 +69,7 @@ namespace Automated_E2E_Testing_Workshop.Specs
             var errorCount = 0;
 
             _components[^1].ScrollTo();
-            Thread.Sleep(5000);
+            Thread.Sleep(3000);
 
             foreach (var component in _components)
             {

@@ -13,5 +13,5 @@ Scenario: Check all components with image comparison
 		And I open the component page
 		And I remove the nav header
 		And I collect all components
-	Then Should found 79 components
+	Then Should found 77 components
 		And All components should correspond to the basic image 
