@@ -17,7 +17,6 @@ namespace Automated_E2E_Testing_Workshop.Specs
     [Binding]
     public sealed class ComponentsSteps
     {
-        private readonly ScenarioContext _scenarioContext;
         private readonly IWebDriver _driver;
         private ReadOnlyCollection<IWebElement> _components;
 
@@ -61,10 +60,6 @@ namespace Automated_E2E_Testing_Workshop.Specs
         [Then(@"All components should correspond to the basic image")]
         public void ThenAllComponentsShouldCorrespondToTheBasicImage()
         {
-            var baseFilePath = "c:/temp/SwissLife-UITesting";
-
-            Directory.CreateDirectory("c:/temp");
-            Directory.CreateDirectory(baseFilePath);
             var count = 0;
             var errorCount = 0;
 
@@ -78,7 +73,7 @@ namespace Automated_E2E_Testing_Workshop.Specs
 
                 using Bitmap newImage = _driver.GetElementScreenshot(component, false);
                 count++;
-                var baseFileName = $"{baseFilePath}/component_{count}";
+                var baseFileName = $"{Hooks.BasePath}/component_{count}";
                 if (!File.Exists($"{baseFileName}.1_base.png"))
                 {
                     newImage.Save($"{baseFileName}.1_base.png", ImageFormat.Png);
@@ -94,16 +89,14 @@ namespace Automated_E2E_Testing_Workshop.Specs
 
                     if (diff > 9000)
                     {
-                        newImg.Write($"{baseFileName}.2_new.png");
-                        diffImg.Write($"{baseFileName}.3_diff.png");
-                        TestContext.AddTestAttachment($"{baseFileName}.1_base.png", "BaseImg");
-                        TestContext.AddTestAttachment($"{baseFileName}.2_new.png", "NewBaseImg");
-                        TestContext.AddTestAttachment($"{baseFileName}.3_diff.png", "DiffImg");
+                        baseImg.Write($"{Hooks.TestPath}/component_{count}.1_base.png");
+                        newImg.Write($"{Hooks.TestPath}/component_{count}.2_new.png");
+                        diffImg.Write($"{Hooks.TestPath}/component_{count}.3_diff.png");
                         errorCount++;
                     }
                 }
             }
-            Assert.AreEqual(0, errorCount, "Es wurden {errorCount} visuelle Fehler gefunden.");
+            Assert.AreEqual(0, errorCount, $"Es wurden {errorCount} visuelle Fehler gefunden.");
         }
 
         private static byte[] ImageToByte(Image img)

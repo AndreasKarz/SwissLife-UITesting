@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿using System.Collections;
+using System.Collections.Specialized;
+using System.Data;
 
 namespace Automated_E2E_Testing_Workshop
 {
@@ -24,6 +26,23 @@ namespace Automated_E2E_Testing_Workshop
             }
 
             return resultTable;
+        }
+
+        /// <summary>
+        /// Converts to Dictionary to a proper string.
+        /// </summary>
+        /// <param name="dict">The dictionary.</param>
+        /// <returns>
+        /// A <see cref="System.String" /> that represents this instance.
+        /// </returns>
+        public static string ToProperString(this IOrderedDictionary dict)
+        {
+            string ret = "";
+            foreach (DictionaryEntry item in dict)
+            {
+                ret += $"{item.Key}: {item.Value}; ";
+            }
+            return ret;
         }
     }
 }

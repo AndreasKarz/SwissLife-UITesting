@@ -1,5 +1,5 @@
 ﻿@Components @Production
-Feature: Check all components
+Feature: Alle Komponenten testen
 	In order to 
 		validate all components after a release
 	As a 
@@ -7,7 +7,7 @@ Feature: Check all components
 	I want to
 		be sure, that are no changes on the components
 
-Scenario: Check all components with image comparison
+Scenario: Alle Komponenten entsprechen den Original Screenshots
 	Given I open the Homepage
 	When I confirm the disclaimer
 		And I open the component page

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html lang="de" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Testreport vom {Date} um {Time}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="display-6">Testreport vom {Date}</h1>
+        <p class="lead"><b>{Time}</b> &#150; <strong>{TotalCount}</strong> Tests ausgeführt mit <strong>{FailCount}</strong> Fehler.</p>
+    </div>
+
+
+    <div class="container">
+        <div class="progress bg-danger">
+            <div class="progress-bar bg-success" role="progressbar" style="width: {SuccessPercent}%;" aria-valuenow="{SuccessCount}" aria-valuemin="0" aria-valuemax="{TotalCount}">{SuccessCount}</div>
+            <div class="progress-bar bg-danger" role="progressbar" style="width: {FailPercent}%;" aria-valuenow="{FailCount}" aria-valuemin="0" aria-valuemax="{TotalCount}">{FailCount}</div>
+        </div>
+    </div>
+    <div class="container">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">Feature</th>
+                    <th scope="col">Test</th>
+                    <th scope="col">Resultat</th>
+                    <th scope="col">Meldung</th>
+                </tr>
+            </thead>
+            <tbody>
+                {TableRows}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

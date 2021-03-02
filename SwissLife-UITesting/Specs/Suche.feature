@@ -22,6 +22,6 @@ Beispiele:
 	| Invest                   | 80     |
 	| 3a                       | 100    |
 
-Szenario: Suche ohne Resultate
+Szenario: Suche 'EinBegriffDenEsNichtGibt' ohne Resultate
 	Wenn Ich nach dem Begriff 'EinBegriffDenEsNichtGibt' suche 
 	Dann Wird die Meldung 'Suche liefert kein Ergebnis' angezeigt
