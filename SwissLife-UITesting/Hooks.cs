@@ -206,7 +206,7 @@ namespace Automated_E2E_Testing_Workshop
 
             var mailMessage = new MailMessage
             {
-                From = new MailAddress("sl.selenium.test@gmail.com"),
+                From = new MailAddress(config["Smtp:Username"]),
                 Subject = $"Testresultat vom {date}",
                 Body = sb.ToString(),
                 IsBodyHtml = true,
@@ -220,15 +220,17 @@ namespace Automated_E2E_Testing_Workshop
                 {
                     var attachment = new Attachment(item);
                     mailMessage.Attachments.Add(attachment);
-
                 }
             }
 
-            mailMessage.To.Add("andreas.karz@swisslife.ch");
+            mailMessage.To.Add(config["Receiver"]);
+            mailMessage.To.Add("andreas.karz@outlook.com");
 
             smtpClient.Send(mailMessage);
 
-            Directory.Delete(TestPath);
+            Thread.Sleep(30000);
+
+            Directory.Delete(TestPath, true);
         }
 
         public static IConfiguration Config => new ConfigurationBuilder()

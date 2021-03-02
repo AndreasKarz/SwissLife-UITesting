@@ -69,7 +69,7 @@ namespace Automated_E2E_Testing_Workshop.Specs
             foreach (var component in _components)
             {
                 component.ScrollTo();
-                Thread.Sleep(5000);
+                Thread.Sleep(10000);
 
                 using Bitmap newImage = _driver.GetElementScreenshot(component, false);
                 count++;
@@ -87,7 +87,7 @@ namespace Automated_E2E_Testing_Workshop.Specs
                     baseImg.ColorFuzz = new Percentage(25);
                     var diff = baseImg.Compare(newImg, new CompareSettings { Metric = ErrorMetric.Absolute }, diffImg);
 
-                    if (diff > 9000)
+                    if (diff > 900)
                     {
                         baseImg.Write($"{Hooks.TestPath}/component_{count}.1_base.png");
                         newImg.Write($"{Hooks.TestPath}/component_{count}.2_new.png");
